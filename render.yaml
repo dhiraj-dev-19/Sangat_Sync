@@ -11,6 +11,6 @@ services:
       - key: GOOGLE_CLOUD_LOCATION
         value: global
       - key: GOOGLE_GENAI_USE_VERTEXAI
-        value: "TRUE"
+        value: "FALSE"
       - key: PORT
         value: "8080"
