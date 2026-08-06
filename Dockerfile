@@ -21,5 +21,5 @@ ENV GOOGLE_CLOUD_LOCATION=global
 
 EXPOSE 8080
 
-# Command to start the Sangat_Sync A2A server
-CMD ["python", "h_a2a_deployment/server.py"]
+# Command to start the official Google ADK Web Interface + A2A protocol
+CMD ["adk", "web", "--host", "0.0.0.0", "--port", "8080", "--a2a", "--logo-text", "Sangat_Sync Multi-Agent Engine", "."]
