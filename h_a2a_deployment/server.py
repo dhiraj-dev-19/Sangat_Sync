@@ -52,6 +52,15 @@ def create_a2a_app():
     session_service = InMemorySessionService()
     runner = Runner(agent=root_agent, app_name="sangat_sync", session_service=session_service)
 
+    @app.get("/")
+    async def root_index():
+        """Serves the Sangat_Sync HTML landing page."""
+        public_index = os.path.join(PROJECT_ROOT, "public", "index.html")
+        if os.path.exists(public_index):
+            from fastapi.responses import FileResponse
+            return FileResponse(public_index)
+        return {"status": "Sangat_Sync A2A Server Active", "agent_card": "/.well-known/agent.json"}
+
     @app.get("/.well-known/agent.json")
     async def agent_card_endpoint():
         """Agent Card Discovery Endpoint (A2A Specification)."""
