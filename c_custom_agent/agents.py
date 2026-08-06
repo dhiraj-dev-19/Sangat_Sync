@@ -36,17 +36,17 @@ class BudgetAwarePlannerAgent(BaseAgent):
         )
         activity_finder_agent = LlmAgent(
             name="ActivityFinderAgent", model="gemini-2.5-flash", tools=[google_search],
-            instruction="Find a popular museum or tourist activity in or near Sunnyvale, CA. Output only its name.",
+            instruction="Find a popular museum or tourist activity in or near { user_location? }. Output only its name.",
             output_key="found_activity"
         )
         cost_estimator_agent = LlmAgent(
             name="CostEstimatorAgent", model="gemini-2.5-flash", tools=[google_search],
-            instruction="The user wants to know the cost for one adult ticket for the following place: {item_name}. Search for the price and output ONLY the numerical value. For example, if a ticket is $25.99, output '25.99'. If it's free, output '0'.",
+            instruction="The user wants to know the cost for one adult ticket for the following place: { item_name? }. Search for the price and output ONLY the numerical value. For example, if a ticket is $25.99, output '25.99'. If it's free, output '0'.",
             output_key="estimated_cost"
         )
         restaurant_finder_agent = LlmAgent(
             name="RestaurantFinderAgent", model="gemini-2.5-flash", tools=[google_search],
-            instruction="Find a moderately priced, well-rated restaurant in or near Sunnyvale, CA that is not fast food. Output only its name.",
+            instruction="Find a moderately priced, well-rated restaurant in or near { user_location? } that is not fast food. Output only its name.",
             output_key="found_restaurant"
         )
 
@@ -149,4 +149,4 @@ class BudgetAwarePlannerAgent(BaseAgent):
 
 # --- 2. Instantiate the Agent ---
 root_agent = BudgetAwarePlannerAgent(name="BudgetAwarePlannerAgent")
-print("🤖 Budget-Aware Planner Agent is ready.")
+print("🤖 Sangat_Sync Budget-Aware Planner ready!")

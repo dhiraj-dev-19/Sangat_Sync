@@ -42,4 +42,4 @@ root_agent = Agent(
     tools=tools,
 )
 
-print("🤖 Trip Planner Agent is ready.")
+print("🤖 Sangat_Sync MCP Trip Planner ready!")

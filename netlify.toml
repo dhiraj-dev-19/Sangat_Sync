@@ -1,0 +1,18 @@
+[build]
+  command = "pip install -r requirements.txt"
+  functions = "netlify/functions"
+  publish = "public"
+
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["destinations.db", "d_routing_agent/**", "c_custom_agent/**", "e_agent_as_tool/**", "f_agent_with_memory/**", "b1_sequential_agent/**", "b2_parallel_agent/**", "b3_loop_agent/**", "b4_manual_sequential_flow/**", "h_a2a_deployment/**"]
+
+[[redirects]]
+  from = "/.well-known/agent.json"
+  to = "/.netlify/functions/api/.well-known/agent.json"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200

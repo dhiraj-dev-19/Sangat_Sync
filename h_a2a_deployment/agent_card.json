@@ -1,0 +1,40 @@
+{
+  "name": "Sangat_Sync",
+  "description": "A dynamic multi-agent system orchestrating your perfect journey. Supports global trip planning with budget awareness, iterative optimization, parallel research, location disambiguation, and persistent memory.",
+  "url": "https://sangat-sync-adk-dev-496506.a.run.app",
+  "version": "1.0.0",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false
+  },
+  "skills": [
+    {
+      "id": "plan_global_trip",
+      "name": "Plan a Global Trip",
+      "description": "Creates comprehensive trip plans for any destination worldwide with budget, cultural, and seasonal awareness",
+      "examples": [
+        "Plan a day in Mumbai for under ₹5000",
+        "Find heritage sites in Rajasthan",
+        "Optimize my Delhi itinerary for shortest distances"
+      ]
+    },
+    {
+      "id": "discover_destinations",
+      "name": "Discover Destinations",
+      "description": "Searches a curated database of 107 destinations across 23 countries and Google Search for real-time results",
+      "examples": [
+        "What are the top-rated temples in India?",
+        "Find affordable activities in Paris under €20"
+      ]
+    },
+    {
+      "id": "personalized_planning",
+      "name": "Personalized Planning",
+      "description": "Remembers user preferences (cuisine, interests, budget range) and creates personalized recommendations",
+      "examples": [
+        "I love spicy food and art museums, remember that",
+        "Plan my trip based on my saved preferences"
+      ]
+    }
+  ]
+}

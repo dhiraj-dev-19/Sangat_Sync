@@ -11,7 +11,7 @@ from google.genai.types import Content, Part
 from trip_agent import root_agent
 
 async def main():
-    print("🤖 Initializing Trip Planner Agent CLI...")
+    print("🤖 Initializing Sangat_Sync MCP Planner CLI...")
     print("--------------------------------------------------")
 
     # Using a simple temporary session for this example
@@ -30,7 +30,7 @@ async def main():
         try:
             query = input("You: ")
             if query.lower() in ["quit", "exit"]:
-                print("🤖 Goodbye!")
+                print("🤖 Sangat_Sync: Goodbye!")
                 break
 
             print("Agent: ", end="", flush=True)

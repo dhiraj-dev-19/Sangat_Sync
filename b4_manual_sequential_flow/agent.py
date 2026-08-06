@@ -75,4 +75,4 @@ worker_agents = {
     "transportation_agent": transportation_agent, # Add the new agent!
 }
 
-print("🤖 Agent team assembled for sequential workflows!")
+print("🤖 Sangat_Sync manual sequential workflow ready!")

@@ -25,7 +25,7 @@ planner_agent = Agent(
 critic_agent = Agent(
     name="critic_agent", model="gemini-2.5-flash", tools=[google_search],
     instruction=f"""You are a logistics expert. Your job is to critique a travel plan. The user has a strict constraint: total travel time must be short.
-    Current Plan: {{current_plan}}
+    Current Plan: {{ current_plan? }}
     Use your tools to check the travel time between the two locations.
     IF the travel time is over 45 minutes, provide a critique, like: 'This plan is inefficient. Find a restaurant closer to the activity.'
     ELSE, respond with the exact phrase: '{COMPLETION_PHRASE}'""",
@@ -38,8 +38,8 @@ refiner_agent = Agent(
     model="gemini-2.5-flash", 
     tools=[google_search],
     instruction=f"""You are a trip planner, refining a plan based on criticism.
-    Original Request: {{session.query}}
-    Critique: {{criticism}}
+    Original Request: {{ session.query? }}
+    Critique: {{ criticism? }}
     IF the critique is '{COMPLETION_PHRASE}', you MUST respond with the exact phrase '{COMPLETION_PHRASE}'.
     ELSE, generate a NEW plan that addresses the critique. Output only the new plan names, like: 'Activity: de Young Museum, Restaurant: Nopa'.""",
     output_key="current_plan"
@@ -69,6 +69,6 @@ iterative_planner_agent = SequentialAgent(
     description="A workflow that iteratively plans and refines a trip to meet constraints."
 )
 
-print("🤖 Agent team updated with an iterative LoopAgent workflow!")
+print("🤖 Sangat_Sync LoopAgent workflow ready!")
 
 root_agent = iterative_planner_agent

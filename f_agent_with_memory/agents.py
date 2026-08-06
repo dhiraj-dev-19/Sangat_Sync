@@ -52,7 +52,7 @@ planner_tool_agent = LlmAgent(
     model="gemini-2.5-flash",
     description="A specialist that finds activities and restaurants based on a user's request and preferences.",
     instruction="""
-    You are a planning assistant. Based on the user's request and their provided preferences, find one activity and one restaurant in Sunnyvale.
+    You are a planning assistant. Based on the user's request and their provided preferences, find one activity and one restaurant in { user_location? }.
     Output the plan as a simple JSON object.
     Example: {"activity": "The Tech Interactive", "restaurant": "Il Postale"}
     """,
@@ -77,4 +77,4 @@ root_agent = LlmAgent(
     ]
 )
 
-print("🤖 Memory Coordinator Agent (with ADK Session Service) is ready.")
+print("🤖 Sangat_Sync Memory Agent ready!")

@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: sangat-sync
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: singapore
+    envVars:
+      - key: GOOGLE_CLOUD_PROJECT
+        value: adk-dev-496506
+      - key: GOOGLE_CLOUD_LOCATION
+        value: global
+      - key: GOOGLE_GENAI_USE_VERTEXAI
+        value: "TRUE"
+      - key: PORT
+        value: "8080"

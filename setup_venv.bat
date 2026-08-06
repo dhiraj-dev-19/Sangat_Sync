@@ -91,7 +91,7 @@ gcloud config set project "!PROJECT_ID_FROM_FILE!" --quiet
 
 REM Re-confirm the project ID from the config
 for /f "delims=" %%j in ('gcloud config get project') do set PROJECT_ID=%%j
-set "REGION=us-central1"
+set "REGION=global"
 
 echo 📝 Creating .env file...
 (

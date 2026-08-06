@@ -1,10 +1,15 @@
 # Google AI Development Kit (ADK) dependencies
-# Conditional installation based on Python version
-google-adk==0.3.0; python_version<"3.9"
-google-adk==1.15.1; python_version>="3.9"
+# ADK 1.31.0 with A2A Protocol support for Phase 3 deployment
+google-adk[a2a]==1.31.0; python_version>="3.7"
+google-adk==1.15.1; python_version<"3.7"
 
-# Additional dependencies that might be needed
+# Google GenAI SDK (required by ADK 1.31.0)
+google-genai>=1.0.0
+
+# Additional dependencies
 python-dotenv>=1.0.0
+uvicorn>=0.30.0
+mangum>=0.17.0
 
 # Development dependencies (optional)
 pytest==8.4.2

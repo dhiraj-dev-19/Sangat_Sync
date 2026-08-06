@@ -19,7 +19,7 @@ MY_SESSION_ID = f"{MY_USER_ID}_cli_session"
 
 
 async def main():
-    print("🤖 Initializing Personalized Trip Planner CLI...")
+    print("🤖 Initializing Sangat_Sync Memory Planner CLI...")
     print(f"🗄️  Session database is at: {DB_FILE}")
     print("--------------------------------------------------")
 
@@ -44,7 +44,7 @@ async def main():
         try:
             query = input("You: ")
             if query.lower() in ["quit", "exit"]:
-                print("🤖 Goodbye!")
+                print("🤖 Sangat_Sync: Goodbye!")
                 break
             
             print("Agent: ", end="", flush=True)

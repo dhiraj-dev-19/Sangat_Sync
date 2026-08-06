@@ -44,9 +44,9 @@ parallel_research_agent = ParallelAgent(
 synthesis_agent = Agent(
     name="synthesis_agent", model="gemini-2.5-flash",
     instruction="""You are a helpful assistant. Combine the following research results into a clear, bulleted list for the user.
-    - Museum: {museum_result}
-    - Concert: {concert_result}
-    - Restaurant: {restaurant_result}
+    - Museum: { museum_result? }
+    - Concert: { concert_result? }
+    - Restaurant: { restaurant_result? }
     """
 )
 
@@ -58,4 +58,4 @@ parallel_planner_agent = SequentialAgent(
 )
 
 root_agent = parallel_planner_agent
-print("🤖 Agent team supercharged with a ParallelAgent workflow!")
+print("🤖 Sangat_Sync ParallelAgent workflow ready!")

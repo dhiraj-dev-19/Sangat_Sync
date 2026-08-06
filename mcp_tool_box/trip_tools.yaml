@@ -1,4 +1,6 @@
-# trip_tools.yaml
+# trip_tools.yaml — Sangat_Sync Global Trip Planner Tools
+# "A dynamic multi-agent system orchestrating your perfect journey."
+
 sources:
   trip-db-source:
     kind: sqlite
@@ -11,16 +13,19 @@ tools:
     kind: sqlite-sql
     source: trip-db-source
     description: >
-      Search for travel destinations of a specific type (e.g., 'Museum', 'Park', 'Landmark')
+      Search for travel destinations of a specific type (e.g., 'Museum', 'Heritage',
+      'Temple', 'Park', 'Beach', 'Landmark', 'Nature', 'Wildlife', 'Hill Station')
       in a given city.
     parameters:
       - name: city
         type: string
-        description: The city to search in (e.g., 'Paris', 'Rome').
+        description: The city to search in (e.g., 'Mumbai', 'Paris', 'Tokyo').
       - name: type
         type: string
-        description: The type of destination to find (e.g., 'Museum').
-    statement: SELECT name, type, rating FROM destinations WHERE city = $1 AND type = $2;
+        description: The type of destination to find (e.g., 'Museum', 'Heritage', 'Temple').
+    statement: >
+      SELECT name, type, rating, average_cost, currency, best_season, description
+      FROM destinations WHERE city = $1 AND type = $2 ORDER BY rating DESC;
 
   # Tool 2: Find top-rated destinations in a city
   find_top_rated_in_city:
@@ -31,25 +36,71 @@ tools:
       - name: city
         type: string
         description: The city to search in.
-    statement: SELECT name, rating, type FROM destinations WHERE city = $1 ORDER BY rating DESC LIMIT 5;
+    statement: >
+      SELECT name, rating, type, average_cost, currency, description
+      FROM destinations WHERE city = $1 ORDER BY rating DESC LIMIT 5;
 
   # Tool 3: Find affordable destinations based on a maximum cost
   find_affordable_options:
     kind: sqlite-sql
     source: trip-db-source
-    description: Find affordable destinations in a city that are below a maximum average cost.
+    description: Find affordable destinations in a city below a maximum cost in local currency.
     parameters:
       - name: city
         type: string
         description: The city to search in.
       - name: max_cost
         type: integer
-        description: The maximum average cost for the activity.
-    statement: SELECT name, average_cost, type FROM destinations WHERE city = $1 AND average_cost <= $2 ORDER BY average_cost ASC;
+        description: The maximum average cost in local currency for the activity.
+    statement: >
+      SELECT name, average_cost, currency, type, description
+      FROM destinations WHERE city = $1 AND average_cost <= $2 ORDER BY average_cost ASC;
 
-# Group all our new tools into a toolset
+  # Tool 4: Find destinations by continent/region
+  find_destinations_by_region:
+    kind: sqlite-sql
+    source: trip-db-source
+    description: Find top destinations in a continent or region (Asia, Europe, Africa, North America, South America, Oceania).
+    parameters:
+      - name: continent
+        type: string
+        description: The continent to search (e.g., 'Asia', 'Europe', 'Africa').
+    statement: >
+      SELECT name, city, country, type, rating, average_cost, currency
+      FROM destinations WHERE continent = $1 ORDER BY rating DESC LIMIT 10;
+
+  # Tool 5: Find destinations by season
+  find_destinations_by_season:
+    kind: sqlite-sql
+    source: trip-db-source
+    description: Find destinations best visited in a specific season or month range.
+    parameters:
+      - name: season
+        type: string
+        description: Season keyword to match (e.g., 'Oct-Mar', 'Year-round', 'Nov-Feb').
+    statement: >
+      SELECT name, city, country, type, rating, best_season
+      FROM destinations WHERE best_season LIKE '%' || $1 || '%' ORDER BY rating DESC LIMIT 10;
+
+  # Tool 6: Find destinations by country
+  find_destinations_by_country:
+    kind: sqlite-sql
+    source: trip-db-source
+    description: Find all destinations in a specific country, useful for trip planning across a nation.
+    parameters:
+      - name: country
+        type: string
+        description: The country to search (e.g., 'India', 'Japan', 'France').
+    statement: >
+      SELECT name, city, type, rating, average_cost, currency, best_season
+      FROM destinations WHERE country = $1 ORDER BY rating DESC LIMIT 15;
+
+# Group all tools into a toolset
 toolsets:
   trip-planner-tools:
     - find_destinations_by_type
     - find_top_rated_in_city
     - find_affordable_options
+    - find_destinations_by_region
+    - find_destinations_by_season
+    - find_destinations_by_country

@@ -103,7 +103,7 @@ gcloud config set project "$PROJECT_ID_FROM_FILE" --quiet
 
 # Re-confirm the project ID from the config
 PROJECT_ID=$(gcloud config get project)
-REGION="us-central1"
+REGION="global"
 
 echo "📝 Creating .env file..."
 cat > .env << EOL

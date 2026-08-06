@@ -1,0 +1,137 @@
+{
+  "eval_set_id": "evalsetb02bdb",
+  "name": "evalsetb02bdb",
+  "eval_cases": [
+    {
+      "eval_id": "case4c45f7",
+      "conversation": [
+        {
+          "invocation_id": "e-5588f281-40b0-4e4d-901b-c42a650a77f9",
+          "user_content": {
+            "parts": [
+              {
+                "text": "i want to explore pune"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CpkDARFNMg-IIC-hFt5rLP9n1ANka05N4JtoMeFAGwpMsIJsg4QgQ7kFpaVB8UGNpv8JSRp0fkUvxEmXCQpUKUOG6e9J84x4e34D4ZBu0sorDVAS5UqwvKemmUym9hY4V6H2nLBYHS0L8NpQA-aZTBDgbLnk3d5P7zreo_vKsdF5T8ivCuWqH9TsgyDvvnolDwLhGVbKkz5PM6u9lzu3Qf3FqpkxIrVwfoxbnP5_qgMciMUOMoH6o7sV0jZ1vSW2kRqVMZ_2ER3BFN7rGxxz5U7iMJjvZHuRKOzelgZnypx9Fu92MH8IEA_8yQqVB0AC3ky3SlEdUo2S3kFwzF7gSRpvxwVPHx_RTwa-aTTziMbXyfv-BUi3M0YNPKKe-NjzG8T1jSAFaIpt-HZEviAaq6obyxcL6kAeJbaLwj8tJHwInoHGvJF50VBNrbknTGCdSpLDkjupflIars6wc1Un-evcx2-AA2xOG8KLOiPmawNKJSzNDoHhzrfJiGnpGXKwfNenF8DcOJIhIbJ6nswR1aMPUvGeb28r8PX85w==",
+                "text": "Here are some top-rated destinations in Pune:\n\n*   **Aga Khan Palace**: A historic palace where Mahatma Gandhi was imprisoned, now a memorial.\n    *   **Type**: Heritage\n    *   **Rating**: 4.4\n    *   **Average Cost**: 25 INR\n    *   **Best Season**: Oct-Mar\n\n*   **Shaniwar Wada**: Historic 18th-century Peshwa fortified palace in the heart of Pune.\n    *   **Type**: Heritage\n    *   **Rating**: 4.3\n    *   **Average Cost**: 25 INR\n    *   **Best Season**: Oct-Mar\n\nWould you like to know more about any of these, or perhaps explore other types of attractions?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "router_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CvABARFNMg9u8QBPbhiBZp6b_Y6fcol35pSmHqoa68mf-m6QvoSBoSkNkisa9x6uJX9W4VJUdyxkSrUSC5HNeusCKYDRm4ZKGn2z43Tdm3h2WkD07zjKLJRPYyVd6-4aRPPC4_zMX-e9tBNNijXl7ckc3vas98JPOC8e_4LeuTmWUex5mMATrAA6EEPlBkV4dsLgriN0EqVqGy9VlMCuxwvhcLynk90_IiMMQoJttVJxRLBii2m1A_uU0SSUq3bnkKKaOGk-xO3O6yMfPOaCXo8BI1GDR83OfXt6FIMpUX8RaLuU_eRC9mSqm8HvD3DNACo2",
+                      "function_call": {
+                        "id": "adk-ae67fe51-6887-4359-a656-ef729d2ea7a1",
+                        "args": {
+                          "locations": [
+                            {
+                              "role": "destination",
+                              "name": "Pune"
+                            }
+                          ]
+                        },
+                        "name": "extract_and_resolve_locations"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "router_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-ae67fe51-6887-4359-a656-ef729d2ea7a1",
+                        "name": "extract_and_resolve_locations",
+                        "response": {
+                          "status": "resolved",
+                          "primary_location": "Pune"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "router_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CtQBARFNMg9b6AFuCyQYkSB2p36vkRH3UR_7VPBMVIg7ygJCOSSttfKPKJIGXxQpYwjERzCUwiC_q3wCmxZ7RQM0gSTdJ8f4FRG910PHKnf8DXRVvnNHWLCP4gUMNHZD1Yy3nrvXhJY-GIBKnGpVP_GWvMIwjqQaYGlu_-AyOR1z3eK8ZkQQXVX72h4HCOPUlPG19tJ1IP2_-e4qff4tm1Tp11MMyKJOwOJRGrInw6XKchw32VWlZTUXPuxErDthY231sOa0JlgCSE0JAZqLivNLePY1lO0=",
+                      "function_call": {
+                        "id": "adk-e3cff5ac-8675-44e2-ab8c-e887e3888186",
+                        "args": {
+                          "city": "Pune"
+                        },
+                        "name": "query_destinations_by_city"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "router_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-e3cff5ac-8675-44e2-ab8c-e887e3888186",
+                        "name": "query_destinations_by_city",
+                        "response": {
+                          "result": [
+                            {
+                              "name": "Aga Khan Palace",
+                              "type": "Heritage",
+                              "rating": 4.4,
+                              "average_cost": 25,
+                              "currency": "INR",
+                              "best_season": "Oct-Mar",
+                              "description": "Historic palace where Mahatma Gandhi was imprisoned, now a memorial"
+                            },
+                            {
+                              "name": "Shaniwar Wada",
+                              "type": "Heritage",
+                              "rating": 4.3,
+                              "average_cost": 25,
+                              "currency": "INR",
+                              "best_season": "Oct-Mar",
+                              "description": "Historic 18th-century Peshwa fortified palace in the heart of Pune"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1786023333.037341
+        }
+      ],
+      "session_input": {
+        "app_name": "d_routing_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1786023453.3808498
+    }
+  ],
+  "creation_timestamp": 1786023445.9653916
+}

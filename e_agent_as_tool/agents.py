@@ -18,7 +18,7 @@ location_scout_agent = Agent(
     name="LocationScoutAgent",
     model="gemini-2.5-flash",
     tools=[google_search],
-    description="Finds a specific type of location (like a museum, restaurant, or park) based on a user's request in or around Sunnyvale, CA. Returns only the name of the location.",
+    description="Finds a specific type of location (like a museum, restaurant, or park) based on a user's request in or around { user_location? }. Returns only the name of the location.",
     instruction="""
     You are a location scout. Based on the user's request (e.g., 'an art museum', 'a cheap but good taco place'), find the best matching place and output ONLY its name.
     Example Request: "a museum about technology"
@@ -66,4 +66,4 @@ trip_architect_agent = Agent(
 
 # --- 3. Set the Root Agent ---
 root_agent = trip_architect_agent
-print("🤖 Trip Architect Agent, with agents as tools, is ready.")
+print("🤖 Sangat_Sync Trip Architect ready!")

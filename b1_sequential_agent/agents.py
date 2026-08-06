@@ -24,10 +24,10 @@ transportation_agent = Agent(
     model="gemini-2.5-flash",
     tools=[google_search],
     instruction="""You are a navigation assistant. Given a destination, provide clear directions.
-    The user wants to go to: {destination}.
+    The user wants to go to: { destination? }.
 
     Analyze the user's full original query to find their starting point.
-    Then, provide clear directions from that starting point to {destination}.
+    Then, provide clear directions from that starting point to { destination? }.
     """,
 )
 
